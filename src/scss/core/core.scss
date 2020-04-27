@@ -1,0 +1,21 @@
+////
+/// Contains all core styles.
+/// @group core
+/// @author Ben Marshall
+////
+
+// Import the SCSS & CSS variables.
+@import '../config/settings';
+@import '../config/variables';
+
+// Import normalize to make base element styles consistent between browsers.
+@import 'normalize';
+
+// Import base element styles.
+@import 'base';
+
+// Import default form styles.
+@import 'forms';
+
+// Import default typography styles.
+@import 'typography';

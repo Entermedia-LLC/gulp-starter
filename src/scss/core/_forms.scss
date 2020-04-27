@@ -1,0 +1,252 @@
+////
+/// Core form element styles
+/// @group core
+/// @author Ben Marshall
+////
+
+// Make sure textarea takes on height automatically
+textarea {
+  border-radius: var(--global-radius);
+  height: auto;
+  min-height: 50px;
+}
+
+// Make select elements are 100% width by default
+select {
+  border-radius: var(--global-radius);
+}
+
+// Reset <button> styles created by most browsers
+button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: var(--global-radius);
+  cursor: var(--global-button-cursor);
+  line-height: 1;
+  padding: 0;
+}
+
+// Make reset inherit font-family instead of settings sans-serif
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+// Text inputs
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea {
+  appearance: none;
+  background-color: var(--input-background);
+  border: var(--input-border);
+  border-radius: var(--input-radius);
+  box-shadow: var(--input-shadow);
+  box-sizing: border-box;
+  color: var(--input-color);
+  display: block;
+  font-family: var(--input-font-family);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  height: var(--input-height);
+  line-height: var(--input-line-height);
+  margin: 0 0 var(--form-spacing);
+  padding: var(--input-padding);
+  transition: var(--input-transition);
+  width: 100%;
+
+  // Focus state
+  &:focus {
+    background-color: var(--input-background-focus);
+    border: var(--input-border-focus);
+    box-shadow: var(--input-shadow-focus);
+    outline: none;
+    transition: var(--input-transition);
+  }
+}
+
+textarea {
+  max-width: 100%;
+
+  &[rows] { /* stylelint-disable-line selector-no-qualifying-type */
+    height: auto;
+  }
+}
+
+input,
+textarea {
+  // Disabled/readonly state
+  &:disabled,
+  &[readonly] { /* stylelint-disable-line selector-no-qualifying-type */
+    background-color: var(--input-background-disabled);
+    cursor: var(--input-cursor-disabled);
+  }
+}
+
+// Reset styles on button-like inputs
+[type='submit'],
+[type='button'] {
+  appearance: none;
+  border-radius: var(--form-button-radius);
+}
+
+// Reset Normalize setting content-box to search elements
+input[type='search'] { /* stylelint-disable-line selector-no-qualifying-type */
+  box-sizing: border-box;
+}
+
+// Number input styles
+/* stylelint-disable max-nesting-depth, property-no-vendor-prefix */
+[type='number'] {
+  @if not $input-number-spinners {
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+/* stylelint-enable max-nesting-depth, property-no-vendor-prefix */
+
+// Placeholder text
+::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+[type='file'],
+[type='checkbox'],
+[type='radio'] {
+  margin: 0 0 var(--form-spacing);
+}
+
+// Styles for input/label siblings
+[type='checkbox'] + label,
+[type='radio'] + label {
+  display: inline-block;
+  margin-#{$global-left}: calc(var(--form-spacing) * 0.5);
+  margin-#{$global-right}: var(--form-spacing);
+  margin-bottom: 0;
+  vertical-align: baseline;
+
+  &[for] {
+    cursor: pointer; /* stylelint-disable-line selector-no-qualifying-type */
+  }
+}
+
+// Styles for inputs inside labels
+label > [type='checkbox'],
+label > [type='radio'] {
+  margin-#{$global-right}: calc(var(--form-spacing) * 0.5);
+}
+
+// Normalize file input width
+[type='file'] {
+  width: 100%;
+}
+
+label {
+  color: var(--form-label-color);
+  display: block;
+  font-size: var(--form-label-font-size);
+  font-weight: var(--form-label-font-weight);
+  line-height: var(--form-label-line-height);
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  margin-bottom: calc(var(--form-spacing) * 0.5);
+  max-width: 100%;
+}
+
+select {
+  appearance: none;
+  background-color: var(--select-background);
+  border: var(--input-border);
+  border-radius: var(--select-radius);
+  color: var(--input-color);
+  font-family: var(--input-font-family);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  height: var(--input-height);
+  line-height: var(--input-line-height);
+  margin: 0 0 var(--form-spacing);
+  padding: var(--input-padding);
+
+  @if $select-triangle-color != transparent {
+    $rgb: 'rgb%28#{round(red($select-triangle-color))}, #{round(green($select-triangle-color))}, #{round(blue($select-triangle-color))}%29';
+
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: #{$rgb}'></polygon></svg>");
+
+    @media screen and (min-width:0\0) {
+      @if lightness($select-triangle-color) < 60% {
+        // White triangle
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg==');
+      }
+      @else {
+        // Black triangle
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMBJREFUeNrEllsOhCAMRVszC9IlzU7KCmVHTJsoMWYMUtpyv9BgbuXQB5ZSdgBYYY4ycgBivk8KYFsQMfMiTTBP4o3nUzCKzOabLJbLy2/g31evGkAginR4/ZegKH5qX3bJCscA3t0x3kgO5tQFyhhFf50xRqFLbyMUNJQzgyjGS/wgCpvKqkRBpuWrE4V9d+1E4dPUXqIg107SQOE/2DRQxMwTDygIInVDET9T3lCoj/6j/VCmGjZOl2lKpZ8AAwDQP7zIimDGFQAAAABJRU5ErkJggg==');
+      }
+    }
+  }
+
+  @if has-value($input-transition) {
+    transition: var(--input-transition);
+  }
+
+  // Focus state
+  &:focus {
+    background-color: var(--input-background-focus);
+    border: var(--input-border-focus);
+    box-shadow: var(--input-shadow-focus);
+    outline: none;
+
+    @if has-value($input-transition) { /* stylelint-disable-line max-nesting-depth */
+      transition: var(--input-transition);
+    }
+  }
+
+  // Disabled state
+  &:disabled {
+    background-color: var(--input-background-disabled);
+    cursor: var(--input-cursor-disabled);
+  }
+
+  // Hide the dropdown arrow shown in newer IE versions
+  &::-ms-expand {
+    display: none;
+  }
+
+  &[multiple] { /* stylelint-disable-line selector-no-qualifying-type */
+    background-image: none;
+    height: auto;
+
+  }
+
+  &:not([multiple]) {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}

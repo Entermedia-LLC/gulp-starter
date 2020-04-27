@@ -4,7 +4,9 @@
   "description": "Starter Gulp build configuration.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "NODE_ENV='development' gulp watch",
+    "compile": "NODE_ENV='development' gulp build",
+    "build": "NODE_ENV='production' gulp build"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,8 @@
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-cond": "^1.0.0",
     "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-minify": "^3.1.0",
     "gulp-postcss": "^8.0.0",
@@ -36,6 +38,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "gulp-todo": "^7.1.1",
+    "normalize.css": "^8.0.1",
     "sassdoc": "^2.7.1",
     "stylelint": "^13.3.2",
     "stylelint-config-sass-guidelines": "^7.0.0",

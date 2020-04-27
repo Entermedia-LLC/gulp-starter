@@ -1,0 +1,737 @@
+////
+/// Contains SCSS & CSS variables. All variables are set to !default and should
+/// be overwritten in the _variables.scss file.
+/// @group core
+/// @author Ben Marshall
+////
+
+/// Font size attribute applied to html and body. Defaults to 100% so the value
+/// is inherited from the user's browser settings.
+/// @type string
+/// @example scss
+///   font-size: $global-font-size;
+///   font-size: var(--global-font-size);
+$global-font-size: 100% !default;
+
+/// Global font weight used for normal type.
+/// @type string
+/// @example scss
+///   font-weight: $global-weight-normal;
+///   font-weight: var(--global-weight-normal);
+$global-weight-normal: normal !default;
+
+/// Global font weight used for bold type.
+/// @type string
+/// @example scss
+///   font-weight: $global-weight-bold;
+///   font-weight: var(--global-weight-bold);
+$global-weight-bold: bold !default;
+
+/// Default line height for all type.
+/// @type string
+/// @example scss
+///   font-weight: $global-lineheight;
+///   font-weight: var(--global-lineheight);
+$global-lineheight: 1.5 !default;
+
+/// Global value used for all elements that have a border radius.
+/// @type string
+/// @example scss
+///   border-radius: $global-radius;
+///   border-radius: var(--global-radius);
+$global-radius: 0 !default;
+
+/// Sets the text direction of the CSS. Can be either ltr or rtl.
+/// @type string
+$global-text-direction: ltr !default;
+
+/// Button cursor's value, auto by default.
+/// @type string
+/// @example scss
+///   cursor: $global-button-cursor;
+///   cursor: var(--global-button-cursor);
+$global-button-cursor: auto !default;
+
+/// Global width of your site. Used by the grid to determine row width.
+/// @type string
+/// @example scss
+///   max-width: $global-width;
+///   max-width: var(--global-width);
+$global-width: 75rem !default;
+
+/// Primary color of the application.
+/// @type string
+/// @example scss
+///   color: $primary-color;
+///   color: var(--primary-color);
+$primary-color: #1779ba !default;
+
+/// Color used for black UI items.
+/// @type color
+/// @example scss
+///   color: $black;
+///   color: var(--black);
+$black: #000 !default;
+
+/// Color used for white UI items.
+/// @type color
+/// @example scss
+///   color: $white;
+///   color: var(--white);
+$white: #fff !default;
+
+/// Color used for light gray UI items.
+/// @type color
+/// @example scss
+///   color: $light-gray;
+///   color: var(--light-gray);
+$light-gray: #e6e6e6 !default;
+
+/// Color used for medium gray UI items.
+/// @type color
+/// @example scss
+///   color: $medium-gray;
+///   color: var(--medium-gray);
+$medium-gray: #cacaca !default;
+
+/// Color used for dark gray UI items.
+/// @type color
+/// @example scss
+///   color: $dark-gray;
+///   color: var(--dark-gray);
+$dark-gray: #8a8a8a !default;
+
+/// Background color of the body.
+/// @type string
+/// @example scss
+///   background: $body-background;
+///   background: var(--body-background);
+$body-background: var(--white) !default;
+
+/// Font stack of the body.
+/// @type string
+/// @example scss
+///   font-family: $body-font-family;
+///   font-family: var(--body-font-family);
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
+
+/// Text color of the body.
+/// @type color
+/// @example scss
+///   color: $body-font-color;
+///   color: var(--body-font-color);
+$body-font-color: var(--black) !default;
+
+/// Set to true to enable antialiased type, SCSS-specific variable.
+/// @type bool
+$body-antialiased: true !default;
+
+/// Font stack used for elements that use monospaced type, such as code samples.
+/// @type string
+/// @example scss
+///   font-family: $font-family-monospace;
+///   font-family: var(--font-family-monospace);
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace !default;
+
+/// Global spacing for form elements.
+/// @type string
+/// @example scss
+///   margin-bottom: $form-spacing;
+///   margin-bottom: var(--form-spacing);
+$form-spacing: 1rem !default;
+
+/// Font size of text inputs.
+/// @type string
+/// @example scss
+///   font-size: $input-font-size;
+///   font-size: var(--input-font-size);
+$input-font-size: 1rem !default;
+
+/// Line height of text inputs, number that is multiplied by the font size.
+/// Should be a unitless value.
+/// @type string
+/// @example scss
+///   line-height: $global-lineheight;
+///   line-height: var(--global-lineheight);
+$input-line-height: var(--global-lineheight) !default;
+
+/// Padding of text inputs. This should be a single value (i.e. same paddding
+/// on all sides) to calculate the correct text input height.
+/// @type string
+/// @example scss
+///   padding: $input-padding;
+///   padding: var(--input-padding);
+$input-padding: calc(var(--form-spacing) / 2) !default;
+
+/// Border around text inputs.
+/// @type string
+/// @example scss
+///   border: $input-border;
+///   border: var(--input-border);
+$input-border: 1px solid var(--medium-gray) !default;
+
+/// Radius for text inputs.
+/// @type string
+/// @example scss
+///   border-radius: $input-radius;
+///   border-radius: var(--input-radius);
+$input-radius: var(--global-radius) !default;
+
+/// Background color of text inputs.
+/// @type string
+/// @example scss
+///   background: $input-background;
+///   background: var(--input-background);
+$input-background: var(--white) !default;
+
+/// Box shadow inside text inputs when not focused.
+/// @type string
+/// @example scss
+///   box-shadow: $input-shadow;
+///   box-shadow: var(--input-shadow);
+$input-shadow: inset 0 1px 2px 'rgb(#{round(red($black))}, #{round(green($black))}, #{round(blue($black))}, 0.1)' !default;
+
+/// Font family of text inputs.
+/// @type string
+/// @example scss
+///   font-family: $input-font-family;
+///   font-family: var(--input-font-family);
+$input-font-family: inherit !default;
+
+/// Font weight of text inputs.
+/// @type string
+/// @example scss
+///   font-weight: $input-font-weight;
+///   font-weight: var(--input-font-weight);
+$input-font-weight: var(--global-weight-normal) !default;
+
+/// Font weight of text inputs.
+/// @type color
+/// @example scss
+///   color: $input-color;
+///   color: var(--input-color);
+$input-color: var(--black) !default;
+
+/// Properties to transition on text inputs.
+/// @type string
+/// @example scss
+///   transition: $input-transition;
+///   transition: var(--input-transition);
+$input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out !default;
+
+/// Border around focused text inputs.
+/// @type string
+/// @example scss
+///   border: $input-border-focus;
+///   border: var(--input-border-focus);
+$input-border-focus: 1px solid var(--dark-gray) !default;
+
+/// Background color of focused of text inputs.
+/// @type string
+/// @example scss
+///   background: $input-background-focus;
+///   background: var(--input-background-focus);
+$input-background-focus: var(--white) !default;
+
+/// Box shadow outside text inputs when focused.
+/// @type string
+/// @example scss
+///   box-shadow: $input-shadow-focus;
+///   box-shadow: var(--input-shadow-focus);
+$input-shadow-focus: 0 0 5px var(--medium-gray) !default;
+
+/// Background color of disabled text inputs.
+/// @type string
+/// @example scss
+///   background: $input-background-disabled;
+///   background: var(--input-background-disabled);
+$input-background-disabled: var(--light-gray) !default;
+
+/// Cursor to use when hovering over a disabled text input.
+/// @type string
+/// @example scss
+///   cursor: $input-cursor-disabled;
+///   cursor: var(--input-cursor-disabled);
+$input-cursor-disabled: not-allowed !default;
+
+/// Height of the input & select elements.
+/// @type string
+/// @example scss
+///   height: $input-height;
+///   height: var(--input-height);
+$input-height: calc((var(--input-font-size) * var(--input-line-height)) + (var(--input-padding) * 2) - 0.0625rem) !default;
+
+/// Enables the up/down buttons that Chrome and Firefox add to
+/// &lt;input type='number'&gt; elements.
+/// @type bool
+$input-number-spinners: true !default;
+
+/// Font color of placeholder text within text inputs.
+/// @type color
+/// @example scss
+///   color: $input-placeholder-color;
+///   color: var(--input-placeholder-color);
+$input-placeholder-color: var(--medium-gray) !default;
+
+/// Default radius for select menus.
+/// @type string
+/// @example scss
+///   color: $select-radius;
+///   color: var(--select-radius);
+$select-radius: var(--global-radius) !default;
+
+/// Background color for select menus.
+/// @type string
+/// @example scss
+///   background: $select-background;
+///   background: var(--select-background);
+$select-background: var(--white) !default;
+
+/// Color of the dropdown triangle inside select menus. Set to transparent to
+/// remove it entirely.
+/// @type string
+$select-triangle-color: #8a8a8a !default;
+
+/// Border radius for form buttons, defaulted to global-radius.
+/// @type string
+/// @example scss
+///   border-radius: $form-button-radius;
+///   border-radius: var(--form-button-radius);
+$form-button-radius: var(--global-radius) !default;
+
+/// Font size for form labels.
+/// @type string
+/// @example scss
+///   font-size: $form-label-font-size;
+///   font-size: var(--form-label-font-size);
+$form-label-font-size: 0.875rem !default;
+
+/// Font weight for form labels.
+/// @type string
+/// @example scss
+///   font-weight: $form-label-font-weight;
+///   font-weight: var(--form-label-font-weight);
+$form-label-font-weight: var(--global-weight-normal) !default;
+
+/// Line height for form labels. The higher the number, the more space between
+/// the label and its input field.
+/// @type string
+/// @example scss
+///   line-height: $form-label-line-height;
+///   line-height: var(--form-label-line-height);
+$form-label-line-height: 1.8 !default;
+
+/// Color for form labels.
+/// @type color
+/// @example scss
+///   color: $form-label-color;
+///   color: var(--form-label-color);
+$form-label-color: var(--black) !default;
+
+/// Bottom margin of paragraphs.
+/// @type string
+/// @example scss
+///   margin-bottom: $paragraph-margin-bottom;
+///   margin-bottom: var(--paragraph-margin-bottom);
+$paragraph-margin-bottom: 1rem !default;
+
+/// Line height of text inside p elements.
+/// @type string
+/// @example scss
+///   line-height: $paragraph-lineheight;
+///   line-height: var(--paragraph-lineheight);
+$paragraph-lineheight: 1.6 !default;
+
+/// Text rendering method for paragraph text.
+/// @type string
+/// @example scss
+///   text-rendering: $paragraph-text-rendering;
+///   text-rendering: var(--paragraph-text-rendering);
+$paragraph-text-rendering: optimizeLegibility !default;
+
+/// Font size of small elements.
+/// @type string
+/// @example scss
+///   font-size: $small-font-size;
+///   font-size: var(--small-font-size);
+$small-font-size: 80% !default;
+
+/// Font family for header elements.
+/// @type string
+/// @example scss
+///   font-family: $body-font-family;
+///   font-family: var(--body-font-family);
+$header-font-family: var(--body-font-family) !default;
+
+/// Font style (e.g. italicized) of headers.
+/// @type string
+/// @example scss
+///   font-family: $header-font-style;
+///   font-family: var(--header-font-style);
+$header-font-style: normal !default;
+
+/// Font weight of headers.
+/// @type string
+/// @example scss
+///   font-weight: $header-font-weight;
+///   font-weight: var(--header-font-weight);
+$header-font-weight: normal !default;
+
+/// Color of headers.
+/// @type string
+/// @example scss
+///   color: $header-color;
+///   color: var(--header-color);
+$header-color: inherit !default;
+
+/// Text rendering method of headers.
+/// @type string
+/// @example scss
+///   text-rendering: $header-text-rendering;
+///   text-rendering: var(--header-text-rendering);
+$header-text-rendering: optimizeLegibility !default;
+
+/// Font size for h1.
+/// @type string
+/// @example scss
+///   font-size: $header-h1-size;
+///   font-size: var(--header-h1-size);
+$header-h1-size: 3rem !default;
+
+/// Font size for h2.
+/// @type string
+/// @example scss
+///   font-size: $header-h2-size;
+///   font-size: var(--header-h2-size);
+$header-h2-size: 2.5rem !default;
+
+/// Font size for h3.
+/// @type string
+/// @example scss
+///   font-size: $header-h3-size;
+///   font-size: var(--header-h3-size);
+$header-h3-size: 1.938rem !default;
+
+/// Font size for h4.
+/// @type string
+/// @example scss
+///   font-size: $header-h4-size;
+///   font-size: var(--header-h4-size);
+$header-h4-size: 1.563rem !default;
+
+/// Font size for h5.
+/// @type string
+/// @example scss
+///   font-size: $header-h5-size;
+///   font-size: var(--header-h5-size);
+$header-h5-size: 1.25rem !default;
+
+/// Font size for h6.
+/// @type string
+/// @example scss
+///   font-size: $header-h6-size;
+///   font-size: var(--header-h6-size);
+$header-h6-size: 1rem !default;
+
+/// Default color for links.
+/// @type color
+/// @example scss
+///   color: $anchor-color;
+///   color: var(--anchor-color);
+$anchor-color: var(--primary-color) !default;
+
+/// Default text decoration for links.
+/// @type string
+/// @example scss
+///   text-decoration: $anchor-text-decoration;
+///   text-decoration: var(--anchor-text-decoration);
+$anchor-text-decoration: none !default;
+
+/// Default color for links on hover.
+/// @type color
+/// @example scss
+///   color: $anchor-color-hover;
+///   color: var(--anchor-color-hover);
+$anchor-color-hover: none !default;
+
+/// Default text decoration for links on hover.
+/// @type string
+/// @example scss
+///   text-decoration: $anchor-text-decoration-hover;
+///   text-decoration: var(--anchor-text-decoration-hover);
+$anchor-text-decoration-hover: none !default;
+
+/// Maximum width of a divider.
+/// @type string
+/// @example scss
+///   max-width: $hr-width;
+///   max-width: var(--hr-width);
+$hr-width: var(--global-width) !default;
+
+/// Default margin for a divider.
+/// @type string
+/// @example scss
+///   margin: $hr-margin;
+///   margin: var(--hr-margin);
+$hr-margin: 1.25rem auto !default;
+
+/// Default border for a divider.
+/// @type string
+/// @example scss
+///   border-bottom: $hr-border;
+///   border-bottom: var(--hr-border);
+$hr-border: 1px solid var(--medium-gray) !default;
+
+/// Bottom margin for items in a list.
+/// @type string
+/// @example scss
+///   border-bottom: $list-margin-bottom;
+///   border-bottom: var(--list-margin-bottom);
+$list-margin-bottom: var(--paragraph-margin-bottom) !default;
+
+/// Positioning for bullets on unordered list items.
+/// @type string
+/// @example scss
+///   list-style-position: $list-style-position;
+///   list-style-position: var(--list-style-position);
+$list-style-position: var(--paragraph-margin-bottom) !default;
+
+/// Line height for items in a list.
+/// @type string
+/// @example scss
+///   line-height: $list-lineheight;
+///   line-height: var(--list-lineheight);
+$list-lineheight: var(--paragraph-lineheight) !default;
+
+/// Left (or right) margin for lists.
+/// @type string
+/// @example scss
+///   margin-left: $list-side-margin;
+///   margin-left: var(--list-side-margin);
+$list-side-margin: 1.25rem !default;
+
+/// Bullet type to use for unordered lists (e.g., square, circle, disc).
+/// @type string
+/// @example scss
+///   list-style-type: $list-style-type;
+///   list-style-type: var(--list-style-type);
+$list-style-type: 1.25rem !default;
+
+/// Left (or right) margin for a list inside a list.
+/// @type string
+/// @example scss
+///   margin-left: $list-nested-side-margin;
+///   margin-left: var(--list-nested-side-margin);
+$list-nested-side-margin: 1.25rem !default;
+
+/// Bottom margin for dl elements.
+/// @type string
+/// @example scss
+///   margin-bottom: $defnlist-margin-bottom;
+///   margin-bottom: var(--defnlist-margin-bottom);
+$defnlist-margin-bottom: 1rem !default;
+
+/// Spacing between dt and dd elements.
+/// @type string
+/// @example scss
+///   margin-bottom: $defnlist-term-margin-bottom;
+///   margin-bottom: var(--defnlist-term-margin-bottom);
+$defnlist-term-margin-bottom: 1rem !default;
+
+/// Font weight for dt elements.
+/// @type string
+/// @example scss
+///   font-weight: $defnlist-term-weight;
+///   font-weight: var(--defnlist-term-weight);
+$defnlist-term-weight: var(--global-weight-bold) !default;
+
+/// Padding inside a blockquote element.
+/// @type string
+/// @example scss
+///   padding: $blockquote-padding;
+///   padding: var(--blockquote-padding);
+$blockquote-padding: 0.5625rem 1.25rem 0 1.188rem !default;
+
+/// Side border for blockquote elements.
+/// @type string
+/// @example scss
+///   border-left: $blockquote-border;
+///   border-left: var(--blockquote-border);
+$blockquote-border: 1px solid var(--medium-gray) !default;
+
+/// Text color of blockquote elements.
+/// @type color
+/// @example scss
+///   color: $blockquote-color;
+///   color: var(--blockquote-color);
+$blockquote-color: var(--dark-gray) !default;
+
+/// Use the default cite block component as default for cite elements.
+/// @type bool
+$enable-cite-block: true !default;
+
+/// Default text color of cite elements.
+/// @type color
+/// @example scss
+///   color: $cite-color;
+///   color: var(--cite-color);
+$cite-color: var(--dark-gray) !default;
+
+/// Default font size of cite elements.
+/// @type string
+/// @example scss
+///   font-size: $cite-font-size;
+///   font-size: var(--cite-font-size);
+$cite-font-size: 0.8125rem !default;
+
+/// Default cite pseudo element.
+/// @type string
+/// @example scss
+///   content: $cite-pseudo-content;
+///   content: var(--cite-pseudo-content);
+$cite-pseudo-content: '\2014 \0020' !default;
+
+/// Bottom border style for abbr elements.
+/// @type string
+/// @example scss
+///   border-bottom: $abbr-underline;
+///   border-bottom: var(--abbr-underline);
+$abbr-underline: 1px dotted var(--black) !default;
+
+/// Use the code component as default for code elements.
+/// @type bool
+$enable-code-inline: true !default;
+
+/// Padding around text of the code component.
+/// @type string
+/// @example scss
+///   padding: $code-padding;
+///   padding: var(--code-padding);
+$code-padding: 0.125rem 0.3125rem 0.0625rem !default;
+
+/// Padding for kbd elements.
+/// @type string
+/// @example scss
+///   padding: $keystroke-padding;
+///   padding: var(--keystroke-padding);
+$keystroke-padding: 0.125rem 0.25rem 0 !default;
+
+/// Background color for kbd elements.
+/// @type string
+/// @example scss
+///   background-color: $keystroke-background;
+///   background-color: var(--keystroke-background);
+$keystroke-background: 0.125rem 0.25rem 0 !default;
+
+/// Font family for kbd elements.
+/// @type string
+/// @example scss
+///   font-family: $keystroke-font;
+///   font-family: var(--keystroke-font);
+$keystroke-font: var(--font-family-monospace) !default;
+
+/// Text color for kbd elements.
+/// @type color
+/// @example scss
+///   color: $keystroke-color;
+///   color: var(--keystroke-color);
+$keystroke-color: var(--black) !default;
+
+/// Border radius for kbd elements.
+/// @type string
+/// @example scss
+///   color: $keystroke-radius;
+///   color: var(--keystroke-radius);
+$keystroke-radius: var(--global-radius) !default;
+
+// Internal variables used for text direction
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+:root {
+  --black: #{$black};
+  --white: #{$white};
+  --light-gray: #{$light-gray};
+  --medium-gray: #{$medium-gray};
+  --dark-gray: #{$dark-gray};
+  --global-font-size: #{$global-font-size};
+  --global-weight-normal: #{$global-weight-normal};
+  --global-lineheight: #{$global-lineheight};
+  --global-radius: #{$global-radius};
+  --global-button-cursor: #{$global-button-cursor};
+  --global-width: #{$global-width};
+  --primary-color: #{$primary-color};
+  --body-background: #{$body-background};
+  --body-font-family: #{$body-font-family};
+  --body-font-color: #{$body-font-color};
+  --form-spacing: #{$form-spacing};
+  --input-font-size: #{$input-font-size};
+  --input-line-height: #{input-line-height};
+  --input-padding: #{$input-padding};
+  --input-border: #{$input-border};
+  --input-radius: #{$input-radius};
+  --input-background: #{$input-background};
+  --input-shadow: #{$input-shadow};
+  --input-font-family: #{$input-font-family};
+  --input-font-weight: #{$input-font-weight};
+  --input-color: #{$input-color};
+  --input-transition: #{$input-transition};
+  --input-border-focus: #{$input-border-focus};
+  --input-background-focus: #{$input-background-focus};
+  --input-shadow-focus: #{$input-shadow-focus};
+  --input-background-disabled: #{$input-background-disabled};
+  --input-cursor-disabled: #{$input-cursor-disabled};
+  --form-button-radius: #{$form-button-radius};
+  --input-placeholder-color: #{$input-placeholder-color};
+  --form-label-font-size: #{$form-label-font-size};
+  --form-label-font-weight: #{$form-label-font-weight};
+  --form-label-line-height: #{$form-label-line-height};
+  --form-label-color: #{$form-label-color};
+  --select-radius: #{$select-radius};
+  --select-background: #{$select-background};
+  --paragraph-margin-bottom: #{$paragraph-margin-bottom};
+  --paragraph-lineheight: #{$paragraph-lineheight};
+  --paragraph-text-rendering: #{$paragraph-text-rendering};
+  --small-font-size: #{$small-font-size};
+  --header-font-family: #{$header-font-family};
+  --header-font-style: #{$header-font-style};
+  --header-font-weight: #{$header-font-weight};
+  --header-color: #{$header-color};
+  --header-text-rendering: #{$header-text-rendering};
+  --header-h1-size: #{$header-h1-size};
+  --header-h2-size: #{$header-h2-size};
+  --header-h3-size: #{$header-h3-size};
+  --header-h4-size: #{$header-h4-size};
+  --header-h5-size: #{$header-h5-size};
+  --header-h6-size: #{$header-h6-size};
+  --anchor-color: #{$anchor-color};
+  --anchor-text-decoration: #{$anchor-text-decoration};
+  --anchor-color-hover: #{$anchor-color-hover};
+  --anchor-text-decoration-hover: #{$anchor-text-decoration-hover};
+  --hr-width: #{$hr-width};
+  --hr-margin: #{$hr-margin};
+  --hr-border: #{$hr-border};
+  --list-margin-bottom: #{$list-margin-bottom};
+  --list-style-position: #{$list-style-position};
+  --list-lineheight: #{$list-lineheight};
+  --list-side-margin: #{$list-side-margin};
+  --list-style-type: #{$list-style-type};
+  --list-nested-side-margin: #{$list-nested-side-margin};
+  --defnlist-margin-bottom: #{$defnlist-margin-bottom};
+  --defnlist-term-margin-bottom: #{$defnlist-term-margin-bottom};
+  --defnlist-term-weight: #{$defnlist-term-weight};
+  --blockquote-padding: #{$blockquote-padding};
+  --blockquote-border: #{$blockquote-border};
+  --blockquote-color: #{$blockquote-color};
+  --cite-color: #{$cite-color};
+  --cite-font-size: #{$cite-font-size};
+  --cite-pseudo-content: #{$cite-pseudo-content};
+  --abbr-underline: #{$abbr-underline};
+  --code-padding: #{$code-padding};
+  --keystroke-padding: #{$keystroke-padding};
+  --keystroke-background: #{$keystroke-background};
+  --keystroke-font: #{$keystroke-font};
+  --font-family-monospace: #{$font-family-monospace};
+  --keystroke-color: #{$keystroke-color};
+  --keystroke-radius: #{$keystroke-radius};
+}

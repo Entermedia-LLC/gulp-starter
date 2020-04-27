@@ -1,0 +1,232 @@
+////
+/// Core typography styles
+/// @group core
+/// @author Ben Marshall
+////
+
+// Typography resets
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+// Paragraphs
+p {
+  font-size: inherit;
+  line-height: var(--paragraph-lineheight);
+  margin-bottom: var(--paragraph-margin-bottom);
+  text-rendering: var(--paragraph-text-rendering);
+}
+
+// Emphasized text
+em,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+// Strong text
+strong,
+b {
+  font-weight: var(--global-weight-bold);
+  line-height: inherit;
+}
+
+// Small text
+small {
+  font-size: var(--small-font-size);
+  line-height: inherit;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--header-color);
+  font-family: var(--header-font-family);
+  font-style: var(--header-font-style);
+  font-weight: var(--header-font-weight);
+  text-rendering: var(--header-text-rendering);
+}
+
+h1 {
+  font-size: var(--header-h1-size);
+}
+
+h2 {
+  font-size: var(--header-2-size);
+}
+
+h3 {
+  font-size: var(--header-h3-size);
+}
+
+h4 {
+  font-size: var(--header-h4-size);
+}
+
+h5 {
+  font-size: var(--header-h5-size);
+}
+
+h6 {
+  font-size: var(--header-h6-size);
+}
+
+// Links
+a {
+  color: var(--anchor-color);
+  cursor: pointer;
+  line-height: inherit;
+  text-decoration: var(--anchor-text-decoration);
+
+  &:hover,
+  &:focus {
+    color: var(--anchor-color-hover);
+    @if $anchor-text-decoration-hover != $anchor-text-decoration { /* stylelint-disable-line max-nesting-depth */
+      text-decoration: var(--anchor-text-decoration-hover);
+    }
+  }
+
+  img {
+    border: 0;
+  }
+}
+
+// Horizontal rule
+hr {
+  border-bottom: var(--hr-border);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  clear: both;
+  height: 0;
+  margin: var(--hr-margin);
+  max-width: var(--hr-width);
+}
+
+// Lists
+ul,
+ol,
+dl {
+  line-height: var(--list-lineheight);
+  list-style-position: var(--list-style-position);
+  margin-bottom: var(--list-margin-bottom);
+}
+
+// List items
+li {
+  font-size: inherit;
+}
+
+// Unordered lists
+ul {
+  margin-#{$global-left}: var(--list-side-margin);
+  list-style-type: var(--list-style-type);
+}
+
+// Ordered lists
+ol {
+  margin-#{$global-left}: var(--list-side-margin);
+}
+
+// Nested unordered/ordered lists
+ul,
+ol {
+  & & {
+    margin-#{$global-left}: var(--list-nested-side-margin);
+    margin-bottom: 0;
+  }
+}
+
+// Definition lists
+dl {
+  margin-bottom: var(--defnlist-margin-bottom);
+
+  dt {
+    font-weight: var(--defnlist-term-weight);
+    margin-bottom: var(--defnlist-term-margin-bottom);
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-#{$global-left}: var(--blockquote-border);
+  margin: 0 0 var(--paragraph-margin-bottom);
+  padding: var(--blockquote-padding);
+
+  &,
+  p {
+    color: var(--blockquote-color);
+    line-height: var(--paragraph-lineheight);
+  }
+}
+
+@if ($enable-cite-block == true) {
+  cite {
+    color: var(--cite-color);
+    display: block;
+    font-size: var(--cite-font-size);
+
+    &::before {
+      content: var(--cite-pseudo-content);
+    }
+  }
+}
+
+// Abbreviations
+abbr,
+abbr[title] { /* stylelint-disable-line selector-no-qualifying-type */
+  border-bottom: var(--abbr-underline);
+  cursor: help;
+  text-decoration: none;
+}
+
+// Figures
+figure {
+  margin: 0;
+}
+
+// Code
+@if ($enable-code-inline == true) {
+  code {
+    display: inline;
+    max-width: 100%;
+    padding: var(--code-padding);
+    word-wrap: break-word;
+  }
+}
+
+// Keystrokes
+kbd {
+  background-color: var(--keystroke-background);
+  color: var(--keystroke-color);
+  font-family: var(--keystroke-font);
+  margin: 0;
+  padding: var(--keystroke-padding);
+
+  @if has-value($keystroke-radius) {
+    border-radius: var(--keystroke-radius);
+  }
+}

@@ -2,11 +2,11 @@
 import gulp from 'gulp'
 import babel from 'gulp-babel'
 import del from 'del'
-import cond from 'gulp-cond'
 import eslint from 'gulp-eslint'
 import prettier from 'gulp-prettier'
 import sourcemaps from 'gulp-sourcemaps'
 import minify from 'gulp-minify'
+import gulpif from 'gulp-if'
 import sass from 'gulp-sass'
 import stylelint from 'gulp-stylelint'
 import autoprefixer from 'autoprefixer'
@@ -62,10 +62,10 @@ export const lintJS = () => {
 export const compileJS = (done) => {
   return gulp
     .src([paths.js + '**/*.js'])
-    .pipe(cond(process.env.NODE_ENV !== 'production', sourcemaps.init()))
+    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
     .pipe(babel())
     .pipe(
-      cond(
+      gulpif(
         process.env.NODE_ENV,
         minify({
           ext: {
@@ -75,7 +75,7 @@ export const compileJS = (done) => {
         })
       )
     )
-    .pipe(cond(process.env.NODE_ENV !== 'production', sourcemaps.write()))
+    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.write()))
     .pipe(gulp.dest(paths.dist_js))
 }
 
@@ -94,16 +94,15 @@ export const lintCSS = () => {
 export const compileCSS = () => {
   return gulp
     .src([paths.scss + '**/*.scss'])
-    .pipe(cond(process.env.NODE_ENV !== 'production', sourcemaps.init()))
+    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
     .pipe(sassdoc())
-    .pipe(sass().on('error', sass.logError))
     .pipe(
-      postcss([
-        autoprefixer(),
-        cond(process.env.NODE_ENV === 'production', cssnano())
-      ])
+      sass({
+        includePaths: ['./node_modules/normalize.css/']
+      }).on('error', sass.logError)
     )
-    .pipe(cond(process.env.NODE_ENV !== 'production', sourcemaps.write()))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.write()))
     .pipe(gulp.dest(paths.distCSS))
 }
 
@@ -132,13 +131,13 @@ export const watchImages = () => {
 export const watchSass = () => {
   gulp.watch(
     paths.scss + '**/*.scss',
-    gulp.series(generateTODO, lintCSS, compileCSS)
+    gulp.series(lintCSS, generateTODO, compileCSS)
   )
 }
 
 // Watches JS files and triggers the JS tasks on change.
 export const watchJS = () => {
-  gulp.watch(paths.js + '**/*.js', gulp.series(generateTODO, lintJS, compileJS))
+  gulp.watch(paths.js + '**/*.js', gulp.series(lintJS, generateTODO, compileJS))
 }
 
 // Runs all build tasks, then watches files for changes to trigger a recompile.
@@ -149,6 +148,7 @@ export const watch = (done) => {
     lintJS,
     lintJS,
     lintCSS,
+    generateTODO,
     compileCSS,
     minImages,
     gulp.parallel(watchJS, watchSass, watchImages)
@@ -162,6 +162,7 @@ export const build = (done) => {
     prettierGulp,
     lintJS,
     lintJS,
+    generateTODO,
     lintCSS,
     compileCSS,
     minImages
