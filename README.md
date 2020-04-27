@@ -1,4 +1,4 @@
-# gulp-starter
+# gulp-starter [![Build Status](https://travis-ci.com/bmarshall511/gulp-starter.svg?branch=master)](https://travis-ci.com/bmarshall511/gulp-starter)
 
 > Rapidly setup [gulp](https://gulpjs.com/) with pre-built tasks that help enforce coding standards, provide backwards compatibility, generates documentation & helps boost performance.
 
