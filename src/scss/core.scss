@@ -5,17 +5,17 @@
 ////
 
 // Import the SCSS & CSS variables.
-@import '../config/settings';
-@import '../config/variables';
+@import 'config/settings';
+@import 'config/variables';
 
 // Import normalize to make base element styles consistent between browsers.
 @import 'normalize';
 
 // Import base element styles.
-@import 'base';
+@import 'core/base';
 
 // Import default form styles.
-@import 'forms';
+@import 'core/forms';
 
 // Import default typography styles.
-@import 'typography';
+@import 'core/typography';

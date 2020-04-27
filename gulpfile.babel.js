@@ -146,7 +146,6 @@ export const watch = (done) => {
     clean,
     prettierGulp,
     lintJS,
-    lintJS,
     lintCSS,
     generateTODO,
     compileCSS,
@@ -160,7 +159,6 @@ export const build = (done) => {
   gulp.series(
     clean,
     prettierGulp,
-    lintJS,
     lintJS,
     generateTODO,
     lintCSS,
