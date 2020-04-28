@@ -59,6 +59,19 @@ $global-button-cursor: auto !default;
 ///   max-width: var(--global-width);
 $global-width: 75rem !default;
 
+/// Breakpoints
+/// @type array
+/// @example scss
+///   @include breakpoint(medium) {
+///   }
+///
+///  max-width: map-get($breakpoints, medium);
+$breakpoints: (
+  'small': 768px,
+  'medium': 1024px,
+  'large': 1200px
+) !default;
+
 /// Color used for black UI items.
 /// @type color
 /// @example scss
