@@ -1,6 +1,6 @@
 ////
-/// Contains SCSS & CSS variables. All variables are set to !default and should
-/// be overwritten in the _variables.scss file.
+/// Contains SCSS variables. All variables are set to !default and should be
+/// overwritten in the _variables.scss file.
 /// @group core
 /// @author Ben Marshall
 ////
@@ -59,13 +59,6 @@ $global-button-cursor: auto !default;
 ///   max-width: var(--global-width);
 $global-width: 75rem !default;
 
-/// Primary color of the application.
-/// @type color
-/// @example scss
-///   color: $primary-color;
-///   color: var(--primary-color);
-$primary-color: #1779ba !default;
-
 /// Color used for black UI items.
 /// @type color
 /// @example scss
@@ -100,6 +93,13 @@ $medium-gray: #cacaca !default;
 ///   color: $dark-gray;
 ///   color: var(--dark-gray);
 $dark-gray: #8a8a8a !default;
+
+/// Primary color of the application.
+/// @type color
+/// @example scss
+///   color: $primary-color;
+///   color: var(--primary-color);
+$primary-color: #1779ba !default;
 
 /// Background color of the body.
 /// @type string
@@ -647,91 +647,3 @@ $keystroke-radius: var(--global-radius) !default;
 // Internal variables used for text direction
 $global-left: if($global-text-direction == rtl, right, left);
 $global-right: if($global-text-direction == rtl, left, right);
-
-:root {
-  --black: #{$black};
-  --white: #{$white};
-  --light-gray: #{$light-gray};
-  --medium-gray: #{$medium-gray};
-  --dark-gray: #{$dark-gray};
-  --global-font-size: #{$global-font-size};
-  --global-weight-normal: #{$global-weight-normal};
-  --global-lineheight: #{$global-lineheight};
-  --global-radius: #{$global-radius};
-  --global-button-cursor: #{$global-button-cursor};
-  --global-width: #{$global-width};
-  --primary-color: #{$primary-color};
-  --body-background: #{$body-background};
-  --body-font-family: #{$body-font-family};
-  --body-font-color: #{$body-font-color};
-  --form-spacing: #{$form-spacing};
-  --input-font-size: #{$input-font-size};
-  --input-line-height: #{input-line-height};
-  --input-padding: #{$input-padding};
-  --input-border: #{$input-border};
-  --input-radius: #{$input-radius};
-  --input-background: #{$input-background};
-  --input-shadow: #{$input-shadow};
-  --input-font-family: #{$input-font-family};
-  --input-font-weight: #{$input-font-weight};
-  --input-color: #{$input-color};
-  --input-transition: #{$input-transition};
-  --input-border-focus: #{$input-border-focus};
-  --input-background-focus: #{$input-background-focus};
-  --input-shadow-focus: #{$input-shadow-focus};
-  --input-background-disabled: #{$input-background-disabled};
-  --input-cursor-disabled: #{$input-cursor-disabled};
-  --form-button-radius: #{$form-button-radius};
-  --input-placeholder-color: #{$input-placeholder-color};
-  --form-label-font-size: #{$form-label-font-size};
-  --form-label-font-weight: #{$form-label-font-weight};
-  --form-label-line-height: #{$form-label-line-height};
-  --form-label-color: #{$form-label-color};
-  --select-radius: #{$select-radius};
-  --select-background: #{$select-background};
-  --paragraph-margin-bottom: #{$paragraph-margin-bottom};
-  --paragraph-lineheight: #{$paragraph-lineheight};
-  --paragraph-text-rendering: #{$paragraph-text-rendering};
-  --small-font-size: #{$small-font-size};
-  --header-font-family: #{$header-font-family};
-  --header-font-style: #{$header-font-style};
-  --header-font-weight: #{$header-font-weight};
-  --header-color: #{$header-color};
-  --header-text-rendering: #{$header-text-rendering};
-  --header-h1-size: #{$header-h1-size};
-  --header-h2-size: #{$header-h2-size};
-  --header-h3-size: #{$header-h3-size};
-  --header-h4-size: #{$header-h4-size};
-  --header-h5-size: #{$header-h5-size};
-  --header-h6-size: #{$header-h6-size};
-  --anchor-color: #{$anchor-color};
-  --anchor-text-decoration: #{$anchor-text-decoration};
-  --anchor-color-hover: #{$anchor-color-hover};
-  --anchor-text-decoration-hover: #{$anchor-text-decoration-hover};
-  --hr-width: #{$hr-width};
-  --hr-margin: #{$hr-margin};
-  --hr-border: #{$hr-border};
-  --list-margin-bottom: #{$list-margin-bottom};
-  --list-style-position: #{$list-style-position};
-  --list-lineheight: #{$list-lineheight};
-  --list-side-margin: #{$list-side-margin};
-  --list-style-type: #{$list-style-type};
-  --list-nested-side-margin: #{$list-nested-side-margin};
-  --defnlist-margin-bottom: #{$defnlist-margin-bottom};
-  --defnlist-term-margin-bottom: #{$defnlist-term-margin-bottom};
-  --defnlist-term-weight: #{$defnlist-term-weight};
-  --blockquote-padding: #{$blockquote-padding};
-  --blockquote-border: #{$blockquote-border};
-  --blockquote-color: #{$blockquote-color};
-  --cite-color: #{$cite-color};
-  --cite-font-size: #{$cite-font-size};
-  --cite-pseudo-content: #{$cite-pseudo-content};
-  --abbr-underline: #{$abbr-underline};
-  --code-padding: #{$code-padding};
-  --keystroke-padding: #{$keystroke-padding};
-  --keystroke-background: #{$keystroke-background};
-  --keystroke-font: #{$keystroke-font};
-  --font-family-monospace: #{$font-family-monospace};
-  --keystroke-color: #{$keystroke-color};
-  --keystroke-radius: #{$keystroke-radius};
-}
