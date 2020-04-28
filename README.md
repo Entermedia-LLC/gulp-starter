@@ -11,7 +11,7 @@
 * Lints JS files using [eslint](https://eslint.org/), auto formats using [Prettier](https://prettier.io/) &amp; minifies using [gulp-minify](https://www.npmjs.com/package/gulp-minify)
 * Generates source maps using [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
 * Minifies images using [imagemin](https://github.com/imagemin/imagemin)
-* Parses and outputs `TODO`s and `FIXME`s from code comments to a `TODO.md` file
+* Parses and outputs `TODO`s and `FIXME`s from code comments to a `TODO.md` file using [gulp-todo](https://www.npmjs.com/package/gulp-todo)
 
 ## Project setup
 ```
