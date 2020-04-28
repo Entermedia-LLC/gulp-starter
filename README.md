@@ -39,7 +39,7 @@ npm run build
 An optional `css/code.css` stylesheet is compilied and can be included in the project to rapidly setup global styles (i.e. [normalize](https://necolas.github.io/normalize.css/), base elements, typography &amp; form styles).
 
 #### SCSS & CSS Variables
-Both SCSS & CSS variables are found in `src/scss/config/_settings.scss`. These represent the default values and **should not be directly edited**. Instead, the `src/scss/config/_variables.scss` should be used to change or add additional variables.
+Both SCSS & CSS variables are found in `src/scss/config/_settings.scss` and `src/scss/config/_root.scss`. These represent the default values and **should not be directly edited**. Instead, the `src/scss/config/_variables.scss` should be used to change or add additional variables.
 
 ### TODOs & FIXMEs
 The compilation tasks create a TOFO.md file for inline code TODOs & FIXMEs. See [leasot](https://www.npmjs.com/package/gulp-todo) for usage &amp; more information.
