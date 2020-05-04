@@ -13,9 +13,11 @@
 * Minifies images using [imagemin](https://github.com/imagemin/imagemin)
 * Parses and outputs `TODO`s and `FIXME`s from code comments to a `TODO.md` file using [gulp-todo](https://www.npmjs.com/package/gulp-todo)
 
-## WordPress Support
+## Optional Add-ons
 
-**Using WordPress?** gulp-starter comes pre-baked with optional WordPress styles that can be included in your project:
+### WordPress
+
+gulp-starter comes pre-baked with optional WordPress styles that can be included in your project:
 
 * `css/add-ons/wordpress/elementor.css` - [Elementor](https://elementor.com/)-specific styles & overrides.
 
