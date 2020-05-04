@@ -17,9 +17,9 @@
 
 ### WordPress
 
-**Using Elementor with the [Hello Elementor theme](https://elementor.com/hello-theme/)?** Use the [hello-elementor-child](https://github.com/bmarshall511/hello-elementor-child) theme for seamless integration with gulp-starter.
+**Using [Elementor](https://elementor.com/) with the [Hello Elementor theme](https://elementor.com/hello-theme/)?** Use the [hello-elementor-child](https://github.com/bmarshall511/hello-elementor-child) theme for seamless integration with gulp-starter.
 
-* `css/add-ons/wordpress/elementor.css` - [Elementor](https://elementor.com/)-specific styles & overrides.<br />
+* `css/add-ons/wordpress/elementor.css` - Elementor-specific styles & overrides.<br />
 
 ## Project setup
 ```
