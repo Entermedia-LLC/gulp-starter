@@ -17,8 +17,6 @@
 
 ### WordPress
 
-gulp-starter comes pre-baked with optional WordPress styles that can be included in your project:
-
 * `css/add-ons/wordpress/elementor.css` - [Elementor](https://elementor.com/)-specific styles & overrides.
 
 ## Project setup
