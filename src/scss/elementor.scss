@@ -1,0 +1,25 @@
+////
+/// Contains all Elementor-specific styles.
+/// @group elementor
+/// @author Ben Marshall
+////
+
+.elementor-field {
+  &[type=color],
+  &[type=date],
+  &[type=datetime-local],
+  &[type=datetime],
+  &[type=email],
+  &[type=month],
+  &[type=number],
+  &[type=password],
+  &[type=search],
+  &[type=tel],
+  &[type=text],
+  &[type=time],
+  &[type=url],
+  &[type=week],
+  &textarea {
+    margin-bottom: 0;
+  }
+}

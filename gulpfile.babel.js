@@ -76,7 +76,7 @@ export const compileJS = (done) => {
       )
     )
     .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.write()))
-    .pipe(gulp.dest(paths.dist_js))
+    .pipe(gulp.dest(paths.distJS))
 }
 
 // Lints CSS files.

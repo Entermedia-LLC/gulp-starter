@@ -67,6 +67,7 @@ h6 {
   font-family: var(--header-font-family);
   font-style: var(--header-font-style);
   font-weight: var(--header-font-weight);
+  margin: var(--header-margin);
   text-rendering: var(--header-text-rendering);
 }
 
@@ -75,7 +76,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--header-2-size);
+  font-size: var(--header-h2-size);
 }
 
 h3 {
