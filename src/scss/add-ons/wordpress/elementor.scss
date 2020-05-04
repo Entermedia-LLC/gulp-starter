@@ -4,6 +4,9 @@
 /// @author Ben Marshall
 ////
 
+// Import the SCSS & CSS variables & mixins.
+@import '../../core/core';
+
 .elementor-field {
   &[type=color],
   &[type=date],
