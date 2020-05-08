@@ -13,6 +13,14 @@
 * Minifies images using [imagemin](https://github.com/imagemin/imagemin)
 * Parses and outputs `TODO`s and `FIXME`s from code comments to a `TODO.md` file using [gulp-todo](https://www.npmjs.com/package/gulp-todo)
 
+## Optional Add-ons
+
+### WordPress
+
+**Using [Elementor](https://elementor.com/) with the [Hello Elementor theme](https://elementor.com/hello-theme/)?** Use the [hello-elementor-child](https://github.com/bmarshall511/hello-elementor-child) theme for seamless integration with gulp-starter.
+
+* `css/add-ons/wordpress/elementor.css` - Elementor-specific styles & overrides.<br />
+
 ## Project setup
 ```
 npm install
