@@ -7,10 +7,13 @@ font-weight: var(--global-lineheight);</code></pre></div><h3 class="item__sub-he
 border-radius: var(--global-radius);</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Ben Marshall</p></li></ul></section><section class="main__item container item" id="core-variable-global-text-direction"><h3 class="item__heading"><a class="item__name" href="#variable-global-text-direction">global-text-direction</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-text-direction: ltr !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Sets the text direction of the CSS. Can be either ltr or rtl.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Ben Marshall</p></li></ul></section><section class="main__item container item" id="core-variable-global-button-cursor"><h3 class="item__heading"><a class="item__name" href="#variable-global-button-cursor">global-button-cursor</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-button-cursor: auto !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Button cursor&#39;s value, auto by default.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>cursor: $global-button-cursor;
 cursor: var(--global-button-cursor);</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Ben Marshall</p></li></ul></section><section class="main__item container item" id="core-variable-global-width"><h3 class="item__heading"><a class="item__name" href="#variable-global-width">global-width</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$global-width: 75rem !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Global width of your site. Used by the grid to determine row width.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>max-width: $global-width;
 max-width: var(--global-width);</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Ben Marshall</p></li></ul></section><section class="main__item container item" id="core-variable-breakpoints"><h3 class="item__heading"><a class="item__name" href="#variable-breakpoints">breakpoints</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$breakpoints: (
-  &#39;small&#39;: 0,
-  &#39;medium&#39;: 768px,
-  &#39;large&#39;: 1024px,
-  &#39;xlarge&#39;: 1200px
+  &#39;small&#39;: ( min-width: 0 ),
+  &#39;medium&#39;: ( min-width: 768px ),
+  &#39;large&#39;: ( min-width: 1024px ),
+  &#39;xlarge&#39;: ( min-width: 1200px ),
+  &#39;medium-down&#39;: ( max-width: 768px ),
+  &#39;large-down&#39;: ( max-width: 1024px ),
+  &#39;xlarge-down&#39;: ( max-width: 1200px ),
 ) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Breakpoints</p></div><h3 class="item__sub-heading">Type</h3><p><code>Array</code></p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code> @include breakpoint(medium) {
  }
 
@@ -105,7 +108,7 @@ color: var(--keystroke-radius);</code></pre></div><h3 class="item__sub-heading">
   // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {
     // Prints a media query based on the value
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
       @content;
     }
   }
