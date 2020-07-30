@@ -4,11 +4,11 @@
 /// @author Ben Marshall
 ////
 
-// Import the SCSS & CSS variables & mixins.
-@import '../../core/core';
+// Import sass variables, functions, mixins, etc.
+@import '../../global/global';
 
-// Import CSS variables
-@import '../../config/root';
+// Import css variables
+@import '../../base/root';
 
 /* stylelint-disable selector-no-qualifying-type, selector-max-id, max-nesting-depth */
 * {

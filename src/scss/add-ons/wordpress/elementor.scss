@@ -4,8 +4,8 @@
 /// @author Ben Marshall
 ////
 
-// Import the SCSS & CSS variables & mixins.
-@import '../../core/core';
+// Import sass variables, functions, mixins, etc.
+@import '../../global/global';
 
 .elementor-field {
   &[type=color],

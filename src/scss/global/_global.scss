@@ -1,0 +1,17 @@
+////
+/// Global sass variables, functions, mixins, etc. Should never output CSS.
+/// @group global
+/// @author Ben Marshall
+////
+
+// Base sass variables
+@import '../config/settings';
+
+// Custom sass variables
+@import '../config/settings';
+
+// Sass functions
+@import 'functions';
+
+// Sass mixins
+@import 'mixins';
