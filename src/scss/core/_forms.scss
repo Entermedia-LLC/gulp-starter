@@ -184,6 +184,9 @@ legend {
 select {
   appearance: none;
   background-color: var(--select-background);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 3em 0.5em;
   border: var(--input-border);
   border-radius: var(--select-radius);
   color: var(--input-color);

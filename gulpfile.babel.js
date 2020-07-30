@@ -59,7 +59,7 @@ export const lintJS = () => {
 }
 
 // Compiles JS files
-export const compileJS = (done) => {
+export const compileJS = () => {
   return gulp
     .src([paths.js + '**/*.js'])
     .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
