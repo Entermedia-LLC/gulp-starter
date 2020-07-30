@@ -1,6 +1,6 @@
 {
   "name": "gulp-starter",
-  "version": "0.1.0-alpha",
+  "version": "1.0.0",
   "description": "Starter Gulp build configuration.",
   "main": "index.js",
   "scripts": {
