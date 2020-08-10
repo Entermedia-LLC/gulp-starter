@@ -90,27 +90,6 @@ $black: #000 !default;
 ///   color: var(--white);
 $white: #fff !default;
 
-/// Color used for light gray UI items.
-/// @type color
-/// @example scss
-///   color: $light-gray;
-///   color: var(--light-gray);
-$light-gray: #e6e6e6 !default;
-
-/// Color used for medium gray UI items.
-/// @type color
-/// @example scss
-///   color: $medium-gray;
-///   color: var(--medium-gray);
-$medium-gray: #cacaca !default;
-
-/// Color used for dark gray UI items.
-/// @type color
-/// @example scss
-///   color: $dark-gray;
-///   color: var(--dark-gray);
-$dark-gray: #8a8a8a !default;
-
 /// Primary color of the application.
 /// @type color
 /// @example scss
