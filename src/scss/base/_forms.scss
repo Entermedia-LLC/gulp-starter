@@ -65,7 +65,6 @@ textarea {
   font-weight: var(--input-font-weight);
   height: var(--input-height);
   line-height: var(--input-line-height);
-  margin: 0 0 var(--form-spacing);
   padding: var(--input-padding);
   transition: var(--input-transition);
   width: 100%;
@@ -130,30 +129,16 @@ input[type='search'] { /* stylelint-disable-line selector-no-qualifying-type */
   color: var(--input-placeholder-color);
 }
 
-[type='file'],
-[type='checkbox'],
-[type='radio'] {
-  margin: 0 0 var(--form-spacing);
-}
-
 // Styles for input/label siblings
 [type='checkbox'] + label,
 [type='radio'] + label {
   display: inline-block;
-  margin-#{$global-left}: calc(var(--form-spacing) * 0.5);
-  margin-#{$global-right}: var(--form-spacing);
   margin-bottom: 0;
   vertical-align: baseline;
 
   &[for] {
     cursor: pointer; /* stylelint-disable-line selector-no-qualifying-type */
   }
-}
-
-// Styles for inputs inside labels
-label > [type='checkbox'],
-label > [type='radio'] {
-  margin-#{$global-right}: calc(var(--form-spacing) * 0.5);
 }
 
 // Normalize file input width
@@ -177,7 +162,6 @@ fieldset {
 }
 
 legend {
-  margin-bottom: calc(var(--form-spacing) * 0.5);
   max-width: 100%;
 }
 
@@ -195,7 +179,6 @@ select {
   font-weight: var(--input-font-weight);
   height: var(--input-height);
   line-height: var(--input-line-height);
-  margin: 0 0 var(--form-spacing);
   padding: var(--input-padding);
 
   @if $select-triangle-color != transparent {
