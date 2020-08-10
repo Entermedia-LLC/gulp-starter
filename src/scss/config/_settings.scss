@@ -250,13 +250,6 @@ $input-background-disabled: var(--light-gray) !default;
 ///   cursor: var(--input-cursor-disabled);
 $input-cursor-disabled: not-allowed !default;
 
-/// Height of the input & select elements.
-/// @type string
-/// @example scss
-///   height: $input-height;
-///   height: var(--input-height);
-$input-height: calc((var(--input-font-size) * var(--input-line-height)) + (var(--input-padding) * 2) - 0.0625rem) !default;
-
 /// Enables the up/down buttons that Chrome and Firefox add to
 /// &lt;input type='number'&gt; elements.
 /// @type bool
