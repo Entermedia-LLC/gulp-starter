@@ -157,7 +157,7 @@ $input-line-height: var(--global-lineheight) !default;
 /// @example scss
 ///   padding: $input-padding;
 ///   padding: var(--input-padding);
-$input-padding: calc(var(--form-spacing) / 2) !default;
+$input-padding: 0.5rem !default;
 
 /// Border around text inputs.
 /// @type string
