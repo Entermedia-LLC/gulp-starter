@@ -315,7 +315,7 @@ $form-label-line-height: 1.8 !default;
 /// @example scss
 ///   color: $form-label-color;
 ///   color: var(--form-label-color);
-$form-label-color: var(--black) !default;
+$form-label-color: inherit !default;
 
 /// Bottom margin of paragraphs.
 /// @type string
