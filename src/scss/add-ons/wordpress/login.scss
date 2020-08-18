@@ -23,74 +23,24 @@ body {
   line-height: var(--global-lineheight);
 }
 
-input[type='text'],
-input[type='password'],
-input[type='color'],
-input[type='date'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='email'],
-input[type='month'],
-input[type='number'],
-input[type='search'],
-input[type='tel'],
-input[type='time'],
-input[type='url'],
-input[type='week'],
-select,
-textarea {
-  border-radius: var(--input-radius);
-  box-shadow: var(--input-shadow);
-  color: var(--input-color);
-
-  &:focus {
-    border: var(--input-border-focus);
-    box-shadow: var(--input-shadow-focus);
-    outline: none;
+#nav,
+#backtoblog,
+h1 {
+  a {
+    &:focus,
+    &:hover {
+      color: var(--anchor-color-hover);
+    }
   }
 }
 
-.login {
-  form .input,
-  input[type='text'],
-  input[type='password'] {
-    border: var(--input-border);
-    font-size: var(--input-font-size);
-    line-height: var(--input-line-height);
-    min-height: unset;
-    padding: var(--input-padding);
-  }
+#nav,
+#backtoblog {
+  font-size: var(--global-font-size);
 
-  form .input,
-  form input[type='checkbox'],
-  input[type='text'] {
-    background: var(--input-background);
-  }
-
-  label {
-    font-size: var(--form-label-font-size);
-    line-height: var(--form-label-line-height);
-  }
-
-  #nav,
-  #backtoblog,
-  h1 {
-    a {
-      &:focus,
-      &:hover {
-        color: var(--anchor-color-hover);
-      }
-    }
-  }
-
-  #nav,
-  #backtoblog {
-    font-size: var(--global-font-size);
-
-    a {
-      color: var(--anchor-color);
-      text-decoration: var(--anchor-text-decoration);
-    }
+  a {
+    color: var(--anchor-color);
+    text-decoration: var(--anchor-text-decoration);
   }
 }
 

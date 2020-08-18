@@ -30,10 +30,7 @@ td {
 
 // Paragraphs
 p {
-  font-size: inherit;
-  line-height: var(--paragraph-lineheight);
-  margin-bottom: var(--paragraph-margin-bottom);
-  text-rendering: var(--paragraph-text-rendering);
+  margin: var(--global-margin);
 }
 
 // Emphasized text
@@ -63,12 +60,9 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--header-color);
   font-family: var(--header-font-family);
-  font-style: var(--header-font-style);
   font-weight: var(--header-font-weight);
-  margin: var(--header-margin);
-  text-rendering: var(--header-text-rendering);
+  margin: var(--global-margin);
 }
 
 h1 {
@@ -115,18 +109,6 @@ a {
   }
 }
 
-// Horizontal rule
-hr {
-  border-bottom: var(--hr-border);
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  clear: both;
-  height: 0;
-  margin: var(--hr-margin);
-  max-width: var(--hr-width);
-}
-
 // Lists
 ul,
 ol,
@@ -161,73 +143,18 @@ ol {
   }
 }
 
-// Definition lists
-dl {
-  margin-bottom: var(--defnlist-margin-bottom);
-
-  dt {
-    font-weight: var(--defnlist-term-weight);
-    margin-bottom: var(--defnlist-term-margin-bottom);
-  }
-}
-
 // Blockquotes
 blockquote {
-  border-#{$global-left}: var(--blockquote-border);
-  margin: 0 0 var(--paragraph-margin-bottom);
-  padding: var(--blockquote-padding);
-
-  &,
-  p {
-    color: var(--blockquote-color);
-    line-height: var(--paragraph-lineheight);
-  }
-}
-
-@if ($enable-cite-block == true) {
-  cite {
-    color: var(--cite-color);
-    display: block;
-    font-size: var(--cite-font-size);
-
-    &::before {
-      content: var(--cite-pseudo-content);
-    }
-  }
+  margin: var(--global-margin);
 }
 
 // Abbreviations
 abbr,
 abbr[title] { /* stylelint-disable-line selector-no-qualifying-type */
-  border-bottom: var(--abbr-underline);
   cursor: help;
-  text-decoration: none;
 }
 
 // Figures
 figure {
   margin: 0;
-}
-
-// Code
-@if ($enable-code-inline == true) {
-  code {
-    display: inline;
-    max-width: 100%;
-    padding: var(--code-padding);
-    word-wrap: break-word;
-  }
-}
-
-// Keystrokes
-kbd {
-  background-color: var(--keystroke-background);
-  color: var(--keystroke-color);
-  font-family: var(--keystroke-font);
-  margin: 0;
-  padding: var(--keystroke-padding);
-
-  @if has-value($keystroke-radius) {
-    border-radius: var(--keystroke-radius);
-  }
 }
