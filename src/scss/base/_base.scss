@@ -6,7 +6,6 @@
 
 html {
   box-sizing: border-box;
-  font-size: var(--global-font-size);
 }
 
 // Set box-sizing globally to handle padding and border widths
@@ -18,31 +17,14 @@ html {
 
 // Default body styles
 body {
-  background: var(--body-background);
-  color: var(--body-font-color);
-  font-family: var(--body-font-family);
-  font-weight: var(--global-weight-normal);
-  line-height: var(--global-lineheight);
-  margin: 0;
-  padding: 0;
-
-  @if ($body-antialiased) {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Get rid of gap under images by making them display: inline-block; by default
-// Grid defaults to get images and embeds to work properly
 img {
   display: inline-block;
   height: auto;
   -ms-interpolation-mode: bicubic; /* stylelint-disable-line property-no-vendor-prefix */
   max-width: 100%;
-  vertical-align: middle;
-}
-
-// Prevent text overflow on pre
-pre {
-  overflow: auto;
 }
