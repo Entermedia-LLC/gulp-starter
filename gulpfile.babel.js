@@ -14,6 +14,8 @@ import sassdoc from 'sassdoc'
 import cssnano from 'cssnano'
 import postcss from 'gulp-postcss'
 import imagemin from 'gulp-imagemin'
+import webp from 'imagemin-webp'
+import extReplace from 'gulp-ext-replace'
 import todo from 'gulp-todo'
 import { argv } from 'yargs'
 
@@ -114,6 +116,36 @@ export const minImages = () => {
     .pipe(gulp.dest(paths.distImg))
 }
 
+// Coverts jpegs to .webp images.
+export const webpJPEGImages = () => {
+  return gulp
+    .src(paths.img + '**/*.jpg')
+    .pipe(
+      imagemin([
+        webp({
+          quality: 65
+        })
+      ])
+    )
+    .pipe(extReplace('.webp'))
+    .pipe(gulp.dest(paths.distImg))
+}
+
+// Coverts pngs to .webp images.
+export const webpPNGImages = () => {
+  return gulp
+    .src(paths.img + '**/*.png')
+    .pipe(
+      imagemin([
+        webp({
+          lossless: true
+        })
+      ])
+    )
+    .pipe(extReplace('.webp'))
+    .pipe(gulp.dest(paths.distImg))
+}
+
 // Generates a TODO report.
 export const generateTODO = () => {
   return gulp
@@ -124,7 +156,10 @@ export const generateTODO = () => {
 
 // Watches image files and triggers minImages on change.
 export const watchImages = () => {
-  gulp.watch(paths.img + '**/*', minImages)
+  gulp.watch(
+    paths.img + '**/*',
+    gulp.series(minImages, webpJPEGImages, webpPNGImages)
+  )
 }
 
 // Watches scss files and triggers the compileCSS task on change.
@@ -152,6 +187,8 @@ export const watch = (done) => {
     generateTODO,
     compileCSS,
     minImages,
+    webpJPEGImages,
+    webpPNGImages,
     gulp.parallel(watchJS, watchSass, watchImages)
   )(done)
 }
@@ -167,6 +204,8 @@ export const build = (done) => {
     generateTODO,
     lintCSS,
     compileCSS,
-    minImages
+    minImages,
+    webpJPEGImages,
+    webpPNGImages
   )(done)
 }
