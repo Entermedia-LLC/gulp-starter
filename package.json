@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/bmarshall511/gulp-starter/issues"
   },
-  "homepage": "https://github.com/bmarshall511/gulp-starter#readme",
+	"homepage": "https://github.com/bmarshall511/gulp-starter#readme",
   "dependencies": {
     "@babel/register": "^7.11.5",
     "autoprefixer": "^9.8.6",
@@ -31,7 +31,6 @@
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-minify": "^3.1.0",
-    "gulp-postcss": "^8.0.0",
     "gulp-prettier": "^3.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemap": "^1.0.1",
@@ -57,6 +56,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-ext-replace": "^0.3.0",
-    "imagemin-webp": "^6.0.0"
+    "gulp-postcss": "^8.0.0",
+    "imagemin-webp": "^6.0.0",
+    "postcss-normalize": "^9.0.0"
   }
 }

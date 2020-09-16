@@ -13,6 +13,7 @@ import autoprefixer from 'autoprefixer'
 import sassdoc from 'sassdoc'
 import cssnano from 'cssnano'
 import postcss from 'gulp-postcss'
+import postcssNormalize from 'postcss-normalize'
 import imagemin from 'gulp-imagemin'
 import webp from 'imagemin-webp'
 import extReplace from 'gulp-ext-replace'
@@ -94,6 +95,12 @@ export const lintCSS = () => {
 
 // Compiles sass files to CSS.
 export const compileCSS = () => {
+  let postcssPlugins = [postcssNormalize(), autoprefixer()]
+
+  if (process.env.NODE_ENV === 'production') {
+    postcssPlugins.push(cssnano())
+  }
+
   return gulp
     .src([paths.scss + '**/*.scss'])
     .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
@@ -103,7 +110,7 @@ export const compileCSS = () => {
         includePaths: ['./node_modules/normalize.css/']
       }).on('error', sass.logError)
     )
-    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(postcss(postcssPlugins))
     .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.write()))
     .pipe(gulp.dest(paths.distCSS))
 }
