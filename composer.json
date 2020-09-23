@@ -31,11 +31,5 @@
 	],
 	"require": {
 		"composer/installers": "~1.0"
-	},
-	"extra": {
-		"installer-name": "assets",
-		"installer-paths": {
-			"{$name}/": ["bmarshall511/gulp_starter"]
-		}
 	}
 }
