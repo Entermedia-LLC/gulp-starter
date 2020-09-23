@@ -1,7 +1,7 @@
 {
 	"name": "bmarshall511/gulp_starter",
 	"description": "Rapidly setup gulp with pre-built tasks that help enforce coding standards, provide backwards compatibility, generates documentation & helps boost performance.",
-	"type": "bmarshall511-starter",
+	"type": "library",
 	"homepage": "https://github.com/bmarshall511/gulp-starter",
 	"authors": [
 		{
@@ -33,6 +33,9 @@
 		"composer/installers": "~1.0"
 	},
 	"extra": {
-		"installer-name": "assets"
+		"installer-name": "assets",
+		"installer-paths": {
+			"{$name}/": ["bmarshall511/gulp_starter"]
+		}
 	}
 }
