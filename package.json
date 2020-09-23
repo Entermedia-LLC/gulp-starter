@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/bmarshall511/gulp-starter/issues"
   },
-	"homepage": "https://github.com/bmarshall511/gulp-starter#readme",
+  "homepage": "https://github.com/bmarshall511/gulp-starter#readme",
   "dependencies": {
     "@babel/register": "^7.11.5",
     "autoprefixer": "^9.8.6",
