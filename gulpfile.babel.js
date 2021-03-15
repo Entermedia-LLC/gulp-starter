@@ -95,7 +95,7 @@ export const lintCSS = () => {
 
 // Compiles sass files to CSS.
 export const compileCSS = () => {
-  let postcssPlugins = [postcssNormalize(), autoprefixer()]
+  const postcssPlugins = [postcssNormalize(), autoprefixer()]
 
   if (process.env.NODE_ENV === 'production') {
     postcssPlugins.push(cssnano())
