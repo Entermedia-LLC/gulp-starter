@@ -33,7 +33,6 @@
     "gulp-minify": "^3.1.0",
     "gulp-prettier": "^3.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemap": "^1.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "gulp-todo": "^7.1.1",
