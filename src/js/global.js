@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Drupal behavior example
  *
