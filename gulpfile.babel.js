@@ -38,6 +38,11 @@ function minImages(cb) {
   cb();
 }
 
+// Lints sass files.
+function lintCSS(cb) {
+  cb();
+}
+
 // Compiles sass files to CSS.
 function compileCSS(cb) {
   const postcssPlugins = [postcssNormalize(), autoprefixer()];
@@ -108,13 +113,14 @@ function watchImg(cb) {
 }
 
 function watchScss(cb) {
-  gulp.watch(`${paths.scss}**/*.scss`, gulp.series(compileCSS));
+  gulp.watch(`${paths.scss}**/*.scss`, gulp.series(lintCSS, compileCSS));
   cb();
 }
 
 exports.dev = gulp.series(
   clean,
   minImages,
+  lintCSS,
   compileCSS,
   prettifyJS,
   lintJS,
