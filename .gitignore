@@ -2,5 +2,6 @@ node_modules
 *.log
 .DS_Store
 
-# Comment out the line below unless working directly on the gulp-starter repo.
+# Comment out the lines below unless working directly on the gulp-starter repo.
 src/scss
+css
