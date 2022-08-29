@@ -1,218 +1,123 @@
-// Dependencies
-import gulp from 'gulp'
-import babel from 'gulp-babel'
-import del from 'del'
-import eslint from 'gulp-eslint'
-import prettier from 'gulp-prettier'
-import sourcemaps from 'gulp-sourcemaps'
-import minify from 'gulp-minify'
-import gulpif from 'gulp-if'
-import sass from 'gulp-sass'
-import stylelint from 'gulp-stylelint'
-import autoprefixer from 'autoprefixer'
-import sassdoc from 'sassdoc'
-import cssnano from 'cssnano'
-import postcss from 'gulp-postcss'
-import postcssNormalize from 'postcss-normalize'
-import imagemin from 'gulp-imagemin'
-import webp from 'imagemin-webp'
-import extReplace from 'gulp-ext-replace'
-import todo from 'gulp-todo'
-import { argv } from 'yargs'
+"use strict";
 
-// If --prod flag set, update environment to production.
-if (argv.prod) {
-  process.env.NODE_ENV = 'production'
-}
+// Library dependencies
+const gulp = require("gulp");
+const postcssNormalize = require("postcss-normalize");
+const autoprefixer = require("autoprefixer");
+const gulpif = require("gulp-if");
+const sourcemaps = require("gulp-sourcemaps");
+const sass = require("gulp-sass")(require("sass"));
+const imagemin = require("gulp-imagemin");
+const postcss = require("gulp-postcss");
+const cssnano = require("cssnano");
+const prettier = require("gulp-prettier");
+const eslint = require("gulp-eslint");
+const babel = require("gulp-babel");
+const minify = require("gulp-minify");
+const del = require("del");
 
 // Directory configuration
 const paths = {
-  js: './src/js/',
-  scss: './src/scss/',
-  img: './src/img/',
-  distJS: './js/',
-  distCSS: './css/',
-  distImg: './img/'
-}
+  js: "./src/js/",
+  scss: "./src/scss/",
+  img: "./src/img/",
+  distJS: "./js/",
+  distCSS: "./css/",
+  distImg: "./img/",
+};
 
 // Deletes files & folders in the compilied CSS, JS & image directories.
-export const clean = () => {
-  return del([paths.distJS + '**', paths.distCSS + '**', paths.distImg + '**'])
+function clean(cb) {
+  del([paths.distJS + "**", paths.distCSS + "**", paths.distImg + "**"]);
+  cb();
+}
+
+// Minifies images.
+function minImages(cb) {
+  gulp.src(`${paths.img}**/*`).pipe(imagemin()).pipe(gulp.dest(paths.distImg));
+  cb();
+}
+
+// Compiles sass files to CSS.
+function compileCSS(cb) {
+  const postcssPlugins = [postcssNormalize(), autoprefixer()];
+
+  if (process.env.NODE_ENV === "production") {
+    postcssPlugins.push(cssnano());
+  }
+
+  gulp
+    .src(`${paths.scss}**/*.scss`)
+    .pipe(gulpif(process.env.NODE_ENV !== "production", sourcemaps.init()))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(postcss(postcssPlugins))
+    .pipe(gulpif(process.env.NODE_ENV !== "production", sourcemaps.write()))
+    .pipe(gulp.dest(`${paths.distCSS}`));
+  cb();
 }
 
 // Prettier app files
-export const prettierJS = () => {
-  return gulp
-    .src(paths.js + '**/*.js')
+function prettifyJS(cb) {
+  gulp
+    .src(paths.js + "**/*.js")
     .pipe(prettier())
-    .pipe(gulp.dest(paths.js))
-}
-
-// Prettier gulp.babel.js file
-export const prettierGulp = () => {
-  return gulp.src('./gulpfile.babel.js').pipe(prettier()).pipe(gulp.dest('./'))
+    .pipe(gulp.dest(paths.js));
+  cb();
 }
 
 // Lints JS files
-export const lintJS = () => {
-  return gulp
-    .src([paths.js + '**/*.js', './gulpfile.babel.js'])
+function lintJS(cb) {
+  gulp
+    .src([paths.js + "**/*.js", "./gulpfile.babel.js"])
     .pipe(eslint())
-    .pipe(eslint.format())
+    .pipe(eslint.format());
+  cb();
 }
 
 // Compiles JS files
-export const compileJS = () => {
-  return gulp
-    .src([paths.js + '**/*.js'])
-    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
+function compileJS(cb) {
+  gulp
+    .src(`${paths.js}**/*.js`)
+    .pipe(gulpif(process.env.NODE_ENV !== "production", sourcemaps.init()))
     .pipe(babel())
     .pipe(
       gulpif(
         process.env.NODE_ENV,
         minify({
           ext: {
-            src: '.js',
-            min: '.min.js'
-          }
+            src: ".js",
+            min: ".min.js",
+          },
         })
       )
     )
-    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.write()))
-    .pipe(gulp.dest(paths.distJS))
+    .pipe(gulpif(process.env.NODE_ENV !== "production", sourcemaps.write()))
+    .pipe(gulp.dest(paths.distJS));
+
+  cb();
 }
 
-// Lints CSS files.
-export const lintCSS = () => {
-  return gulp.src(paths.scss + '**/*.scss').pipe(
-    stylelint({
-      syntax: 'scss',
-      failAfterError: false,
-      reporters: [{ formatter: 'string', console: true }]
-    })
-  )
+function watchJS(cb) {
+  gulp.watch(`${paths.js}**/*.js`, gulp.series(lintJS, compileJS));
+  cb();
 }
 
-// Compiles sass files to CSS.
-export const compileCSS = () => {
-  const postcssPlugins = [postcssNormalize(), autoprefixer()]
-
-  if (process.env.NODE_ENV === 'production') {
-    postcssPlugins.push(cssnano())
-  }
-
-  return gulp
-    .src([paths.scss + '**/*.scss'])
-    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.init()))
-    .pipe(sassdoc())
-    .pipe(
-      sass({
-        includePaths: ['./node_modules/normalize.css/']
-      }).on('error', sass.logError)
-    )
-    .pipe(postcss(postcssPlugins))
-    .pipe(gulpif(process.env.NODE_ENV !== 'production', sourcemaps.write()))
-    .pipe(gulp.dest(paths.distCSS))
+function watchImg(cb) {
+  gulp.watch(`${paths.img}**/*`, gulp.series(minImages));
+  cb();
 }
 
-// Minifies images.
-export const minImages = () => {
-  return gulp
-    .src(paths.img + '**/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest(paths.distImg))
+function watchScss(cb) {
+  gulp.watch(`${paths.scss}**/*.scss`, gulp.series(compileCSS));
+  cb();
 }
 
-// Coverts jpegs to .webp images.
-export const webpJPEGImages = () => {
-  return gulp
-    .src(paths.img + '**/*.jpg')
-    .pipe(
-      imagemin([
-        webp({
-          quality: 65
-        })
-      ])
-    )
-    .pipe(extReplace('.webp'))
-    .pipe(gulp.dest(paths.distImg))
-}
-
-// Coverts pngs to .webp images.
-export const webpPNGImages = () => {
-  return gulp
-    .src(paths.img + '**/*.png')
-    .pipe(
-      imagemin([
-        webp({
-          lossless: true
-        })
-      ])
-    )
-    .pipe(extReplace('.webp'))
-    .pipe(gulp.dest(paths.distImg))
-}
-
-// Generates a TODO report.
-export const generateTODO = () => {
-  return gulp
-    .src([paths.scss + '**/*.scss', paths.js + '**/*.js'])
-    .pipe(todo())
-    .pipe(gulp.dest('./'))
-}
-
-// Watches image files and triggers minImages on change.
-export const watchImages = () => {
-  gulp.watch(
-    paths.img + '**/*',
-    gulp.series(minImages, webpJPEGImages, webpPNGImages)
-  )
-}
-
-// Watches scss files and triggers the compileCSS task on change.
-export const watchSass = () => {
-  gulp.watch(
-    paths.scss + '**/*.scss',
-    gulp.series(lintCSS, generateTODO, compileCSS)
-  )
-}
-
-// Watches JS files and triggers the JS tasks on change.
-export const watchJS = () => {
-  gulp.watch(paths.js + '**/*.js', gulp.series(lintJS, generateTODO, compileJS))
-}
-
-// Runs all build tasks, then watches files for changes to trigger a recompile.
-export const watch = (done) => {
-  gulp.series(
-    clean,
-    prettierGulp,
-    prettierJS,
-    lintJS,
-    compileJS,
-    lintCSS,
-    generateTODO,
-    compileCSS,
-    minImages,
-    webpJPEGImages,
-    webpPNGImages,
-    gulp.parallel(watchJS, watchSass, watchImages)
-  )(done)
-}
-
-// Runs all build tasks
-export const build = (done) => {
-  gulp.series(
-    clean,
-    prettierGulp,
-    prettierJS,
-    lintJS,
-    compileJS,
-    generateTODO,
-    lintCSS,
-    compileCSS,
-    minImages,
-    webpJPEGImages,
-    webpPNGImages
-  )(done)
-}
+exports.dev = gulp.series(
+  clean,
+  minImages,
+  compileCSS,
+  prettifyJS,
+  lintJS,
+  compileJS
+);
+exports.watch = gulp.parallel(watchJS, watchScss, watchImg);

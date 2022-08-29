@@ -1,0 +1,185 @@
+@import '../core';
+
+/*
+ * Web Fonts from colophon-foundry.org
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Colophon Foundry. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2022 Colophon Foundry
+ *
+ * Licenced to Victoria Cummock Pan Am 103 Lockerbie Legacy Foundation
+ */
+
+@font-face {
+  font-display: swap;
+  font-family: 'basis-grotesque';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/colophon-foundry/basis-grotesque/regular/basis-grotesque-regular.woff2')
+      format('woff2'),
+    url('/fonts/colophon-foundry/basis-grotesque/regular/basis-grotesque-regular.woff')
+      format('woff'),
+    url('/fonts/colophon-foundry/basis-grotesque/regular/basis-grotesque-regular.ttf')
+      format('truetype'),
+    url('/fonts/colophon-foundry/basis-grotesque/regular/basis-grotesque-regular.otf')
+      format('embedded-opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'basis-grotesque';
+  font-style: italic;
+  font-weight: normal;
+  src: url('/fonts/colophon-foundry/basis-grotesque/italic/basis-grotesque-italic.woff2')
+      format('woff2'),
+    url('/fonts/colophon-foundry/basis-grotesque/italic/basis-grotesque-italic.woff')
+      format('woff'),
+    url('/fonts/colophon-foundry/basis-grotesque/italic/basis-grotesque-italic.ttf')
+      format('truetype'),
+    url('/fonts/colophon-foundry/basis-grotesque/italic/basis-grotesque-italic.otf')
+      format('embedded-opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'basis-grotesque';
+  font-style: normal;
+  font-weight: lighter;
+  src: url('/fonts/colophon-foundry/basis-grotesque/light/basis-grotesque-light.woff2')
+      format('woff2'),
+    url('/fonts/colophon-foundry/basis-grotesque/light/basis-grotesque-light.woff')
+      format('woff'),
+    url('/fonts/colophon-foundry/basis-grotesque/light/basis-grotesque-light.ttf')
+      format('truetype'),
+    url('/fonts/colophon-foundry/basis-grotesque/light/basis-grotesque-light.otf')
+      format('embedded-opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'basis-grotesque';
+  font-style: italic;
+  font-weight: lighter;
+  src: url('/fonts/colophon-foundry/basis-grotesque/light-italic/basis-grotesque-light-italic.woff2')
+      format('woff2'),
+    url('/fonts/colophon-foundry/basis-grotesque/light-italic/basis-grotesque-light-italic.woff')
+      format('woff'),
+    url('/fonts/colophon-foundry/basis-grotesque/light-italic/basis-grotesque-light-italic.ttf')
+      format('truetype'),
+    url('/fonts/colophon-foundry/basis-grotesque/light-italic/basis-grotesque-light-italic.otf')
+      format('embedded-opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'basis-grotesque';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/colophon-foundry/basis-grotesque/bold/basis-grotesque-bold.woff2')
+      format('woff2'),
+    url('/fonts/colophon-foundry/basis-grotesque/bold/basis-grotesque-bold.woff')
+      format('woff'),
+    url('/fonts/colophon-foundry/basis-grotesque/bold/basis-grotesque-bold.ttf')
+      format('truetype'),
+    url('/fonts/colophon-foundry/basis-grotesque/bold/basis-grotesque-bold.otf')
+      format('embedded-opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'basis-grotesque';
+  font-style: italic;
+  font-weight: bold;
+  src: url('/fonts/colophon-foundry/basis-grotesque/bold-italic/basis-grotesque-bold-italic.woff2')
+      format('woff2'),
+    url('/fonts/colophon-foundry/basis-grotesque/bold-italic/basis-grotesque-bold-italic.woff')
+      format('woff'),
+    url('/fonts/colophon-foundry/basis-grotesque/bold-italic/basis-grotesque-bold-italic.ttf')
+      format('truetype'),
+    url('/fonts/colophon-foundry/basis-grotesque/bold-italic/basis-grotesque-bold-italic.otf')
+      format('embedded-opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'reckless-neue';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/reckless-neue/regular/RecklessNeue-Regular.woff2')
+      format('woff2'),
+    url('/fonts/reckless-neue/regular/RecklessNeue-Regular.woff') format('woff');
+}
+
+:root {
+  // Global
+  --global-gutter: 2.5rem;
+  --global-margin: 1.5rem;
+  --global-max-width: 1340px;
+  --global-small-width: 760px;
+
+  // Colors
+  --color-alpha: #0a1437; // Dark blue
+  --color-beta: #123c98; // Blue
+  --color-gamma: #2d54a9; // Blue tint 3
+  --color-delta: #e9f0f6; // Light blue
+  --color-epsilon: #dce8f4; // Blue tint 2
+  --color-zeta: #fcfdfe; // Blue tint 1
+  --color-eta: #ffd55e; // Yellow
+  --color-theta: #f8e39e; // Light yellow
+  --color-iota: #fbeec5; // Yellow tint 2
+  --color-kappa: #fdf9e9; // Yellow tint 1
+  --color-lambda: #1a1a1a; // Dark gray
+  --color-mu: #50555a; // Medium gray
+  --color-nu: #8c95a1; // Light gray
+  --color-xi: #fff; // White
+  --color-omikron: #c4090a;
+
+  // Fonts
+  --font-serif: reckless-neue, serif;
+  --font-sans-serif: basis-grotesque, sans-serif;
+
+  // Body styles
+  --body-background: var(--color-xi);
+  --body-font-color: var(--color-alpha);
+  --body-font-family: var(--font-sans-serif);
+  --body-font-size: 2rem;
+  --body-font-weight: 300;
+  --body-line-height: 1.5;
+
+  // Link styles
+  --anchor-font-color: var(--color-beta);
+  --anchor-font-color-hover: var(--color-beta);
+  --anchor-text-decoration: underline;
+  --anchor-text-decoration-hover: none;
+
+  // Heading styles
+  --heading-margin: var(--paragraph-margin);
+  --heading-font-color: var(--color-alpha);
+  --heading-font-family: var(--font-serif);
+  --heading-font-weight: 400;
+
+  // Button styles
+  --button-background: var(--color-beta);
+  --button-border: 1px solid transparent;
+  --button-border-radius: 3.2rem;
+  --button-color: var(--color-xi);
+  --button-font-family: var(--font-sans-serif);
+  --button-font-size: 1.6rem;
+  --button-font-weight: 400;
+  --button-padding: 1rem 4rem;
+  --button-background-hover: var(--color-gamma);
+  --button-border-hover: 1px solid var(--color-alpha);
+  --button-color-hover: var(--color-alpha);
+  --button-font-weight-hover: var(--button-font-weight);
+  --button-border-radius-hover: var(--button-border-radius);
+
+  // Typography styles
+  --blockquote-margin: var(--paragraph-margin);
+  --list-margin: var(--paragraph-margin);
+  --paragraph-margin: 0 0 var(--global-margin) 0;
+
+  --header-height: 8.6rem;
+}

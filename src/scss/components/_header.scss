@@ -1,0 +1,145 @@
+@import '../core';
+
+.header {
+  background-color: var(--color-beta);
+  color: var(--color-xi);
+  padding-bottom: 2.3rem;
+  padding-top: 2.3rem;
+
+  @include breakpoint(medium) {
+    padding-bottom: 0.9rem;
+    padding-top: 0.9rem;
+  }
+
+  .wrapper {
+    align-items: center;
+    display: flex;
+  }
+}
+
+#block-sitebranding {
+  width: 20.7rem;
+
+  a,
+  img {
+    display: block;
+  }
+
+  img {
+    width: 20.7rem;
+  }
+}
+
+#block-useraccountmenu {
+  display: flex;
+  flex-grow: 1;
+
+  ul {
+    background-color: var(--color-xi);
+    font-size: 1.2rem;
+    height: calc(100vh - var(--header-height));
+    left: 0;
+    letter-spacing: 0.1em;
+    list-style: none;
+    margin: 0;
+    max-height: 0;
+    padding: 3.7rem calc(var(--global-gutter) / 2);
+    position: absolute;
+    top: var(--header-height);
+    text-transform: uppercase;
+    visibility: hidden;
+    z-index: 9;
+    width: 100%;
+
+    @include breakpoint(medium) {
+      align-items: center;
+      background-color: transparent;
+      column-gap: 6rem;
+      display: flex;
+      height: auto;
+      justify-content: flex-end;
+      left: auto;
+      max-height: none;
+      padding: 0;
+      position: relative;
+      top: auto;
+      visibility: visible;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    @include breakpoint(medium) {
+      color: var(--color-xi);
+    }
+  }
+
+  li {
+    margin-bottom: 2.2rem;
+
+    @include breakpoint(medium) {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:first-child {
+      a::before {
+        @include breakpoint(medium) {
+          background-image: url('../img/icon-arrow.svg');
+          content: '';
+          display: inline-block;
+          height: 1.1rem;
+          margin-right: 1rem;
+          margin-top: -4px;
+          vertical-align: middle;
+          width: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+.header__menu-toggle {
+  background-image: url('../img/icon-menu.svg');
+  background-color: var(--color-xi);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 100%;
+  display: block;
+  height: 4rem;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  width: 4rem;
+
+  &:hover {
+    background-image: url('../img/icon-menu.svg');
+    background-color: var(--color-xi);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 100%;
+  }
+
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+
+.header--menu-active {
+  .header__menu-toggle {
+    background-image: url('../img/icon-x.svg');
+  }
+
+  #block-useraccountmenu {
+    ul {
+      max-height: 100vh;
+      visibility: visible;
+    }
+  }
+}

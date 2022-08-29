@@ -1,0 +1,34 @@
+@import '../core';
+
+.footer {
+  background-color: var(--color-lambda);
+  color: var(--color-nu);
+  font-size: 1.5rem;
+  padding: 2.8rem 0;
+
+  @include breakpoint(medium) {
+    padding: 1rem 0;
+  }
+
+  p {
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .wrapper {
+    @include breakpoint(medium) {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+#block-companycopyright {
+  margin-bottom: 1.2rem;
+
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
+}
