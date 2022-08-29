@@ -5,59 +5,44 @@
   "main": "index.js",
   "scripts": {
     "watch": "NODE_ENV='development' gulp watch",
-    "compile": "NODE_ENV='development' gulp build",
-    "build": "NODE_ENV='production' gulp build"
+    "dev": "NODE_ENV='development' gulp dev",
+    "build": "NODE_ENV='production' gulp dev"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:bmarshall511/gulp-starter.git"
+    "url": "git+https://github.com/Entermedia-LLC/gulp-starter.git"
   },
-  "keywords": [
-    "gulp"
-  ],
-  "author": "Ben Marshall",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bmarshall511/gulp-starter/issues"
+    "url": "https://github.com/Entermedia-LLC/gulp-starter/issues"
   },
-  "homepage": "https://github.com/bmarshall511/gulp-starter#readme",
-  "dependencies": {
-    "@babel/register": "^7.12.10",
-    "autoprefixer": "^9.8.6",
-    "cssnano": "^4.1.10",
-    "del": "^5.1.0",
+  "homepage": "https://github.com/Entermedia-LLC/gulp-starter#readme",
+  "browserslist": "last 2 versions",
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/register": "^7.18.9",
+    "autoprefixer": "^10.4.8",
+    "cssnano": "^5.1.13",
+    "del": "5.1.0",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-if": "^3.0.0",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "7.1.0",
     "gulp-minify": "^3.1.0",
-    "gulp-prettier": "^3.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-postcss": "^9.0.1",
+    "gulp-prettier": "^4.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-stylelint": "^13.0.0",
     "gulp-todo": "^7.1.1",
     "normalize.css": "^8.0.1",
-    "sassdoc": "^2.7.3",
-    "stylelint": "^13.9.0",
-    "stylelint-config-sass-guidelines": "^7.1.0",
-    "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.17.0",
-    "yargs": "^15.3.1",
-    "sanitize.css": "12.0.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "eslint": "^7.19.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.1.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-ext-replace": "^0.3.0",
-    "gulp-postcss": "^8.0.0",
-    "imagemin-webp": "^6.0.0",
-    "postcss-normalize": "^9.0.0"
+    "postcss": "^8.4.16",
+    "postcss-normalize": "^10.0.1",
+    "sass": "^1.54.5",
+    "stylelint": "^14.11.0",
+    "stylelint-config-sass-guidelines": "^9.0.1"
   }
 }
