@@ -4,7 +4,9 @@
   "description": "Starter Gulp build configuration.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "NODE_ENV='development' gulp watch",
+    "dev": "NODE_ENV='development' gulp dev",
+    "build": "NODE_ENV='production' gulp dev"
   },
   "repository": {
     "type": "git",
@@ -34,9 +36,13 @@
     "gulp-prettier": "^4.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-todo": "^7.1.1",
     "normalize.css": "^8.0.1",
     "postcss": "^8.4.16",
     "postcss-normalize": "^10.0.1",
-    "sass": "^1.54.5"
+    "sass": "^1.54.5",
+    "stylelint": "^14.11.0",
+    "stylelint-config-sass-guidelines": "^9.0.1"
   }
 }

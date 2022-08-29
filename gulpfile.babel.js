@@ -15,6 +15,8 @@ const eslint = require("gulp-eslint");
 const babel = require("gulp-babel");
 const minify = require("gulp-minify");
 const del = require("del");
+const gulpStylelint = require("gulp-stylelint");
+const todo = require("gulp-todo");
 
 // Directory configuration
 const paths = {
@@ -32,6 +34,12 @@ function clean(cb) {
   cb();
 }
 
+// Generates the TODOs & FIXMEs
+function generateToDo(cb) {
+  gulp.src([paths.js, paths.scss]).pipe(todo()).pipe(gulp.dest("./"));
+  cb();
+}
+
 // Minifies images.
 function minImages(cb) {
   gulp.src(`${paths.img}**/*`).pipe(imagemin()).pipe(gulp.dest(paths.distImg));
@@ -40,6 +48,12 @@ function minImages(cb) {
 
 // Lints sass files.
 function lintCSS(cb) {
+  gulp.src(`${paths.scss}**/*.scss`).pipe(
+    gulpStylelint({
+      failAfterError: false,
+      reporters: [{ formatter: "string", console: true }],
+    })
+  );
   cb();
 }
 
@@ -103,7 +117,10 @@ function compileJS(cb) {
 }
 
 function watchJS(cb) {
-  gulp.watch(`${paths.js}**/*.js`, gulp.series(lintJS, compileJS));
+  gulp.watch(
+    `${paths.js}**/*.js`,
+    gulp.series(generateToDo, lintJS, compileJS)
+  );
   cb();
 }
 
@@ -113,11 +130,15 @@ function watchImg(cb) {
 }
 
 function watchScss(cb) {
-  gulp.watch(`${paths.scss}**/*.scss`, gulp.series(lintCSS, compileCSS));
+  gulp.watch(
+    `${paths.scss}**/*.scss`,
+    gulp.series(generateToDo, lintCSS, compileCSS)
+  );
   cb();
 }
 
 exports.dev = gulp.series(
+  generateToDo,
   clean,
   minImages,
   lintCSS,
